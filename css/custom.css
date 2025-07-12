@@ -1,3 +1,11 @@
+/* .listページのサイドバーだけ白背景 */
+.list .sidebar .widget.profile-widget,
+.list .sidebar .widget.categories-widget,
+.list .sidebar .widget.recent-posts-widget {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
 /* ロゴスタイル - 家のアイコン付き */
 .site-logo.logo-house {
   display: inline-flex;
