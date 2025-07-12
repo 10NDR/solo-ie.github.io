@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /_private_memo/
+Disallow: /drafts/
+Allow: /
+
+# XMLサイトマップの場所
+Sitemap: https://solo-ie.com/sitemap.xml
+
+# クローリング頻度の調整
+Crawl-delay: 1
