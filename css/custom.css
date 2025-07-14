@@ -767,3 +767,68 @@
     font-size: 0.9rem;
   }
 }
+
+/* OGPカード風リンクのデザイン強化 */
+.card-link {
+  display: block;
+  max-width: 480px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin: 24px 0;
+  transition: box-shadow 0.2s;
+  overflow: hidden;
+}
+
+.card-link a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  padding: 20px;
+}
+
+.card-link-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-link-content strong {
+  font-size: 1.15em;
+  color: #222;
+}
+
+.card-link-content p {
+  margin: 0;
+  color: #666;
+  font-size: 0.98em;
+}
+
+.card-link:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  border-color: #b3d4fc;
+}
+/* OGPカード風リンク用CSS */
+.card-link {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  background: #fafafa;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s;
+}
+.card-link:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+.card-link-content strong {
+  font-size: 1.1em;
+  display: block;
+  margin-bottom: 8px;
+}
+.card-link-content p {
+  margin: 0;
+  color: #555;
+  font-size: 0.95em;
+}
