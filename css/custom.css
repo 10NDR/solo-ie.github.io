@@ -46,7 +46,7 @@
 }
 
 .logo-house .house-text .solo {
-  color: #e74c3c;
+  color: #c00; /* コントラストの高い赤系強調色 */
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.05em;
