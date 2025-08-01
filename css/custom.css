@@ -1,3 +1,9 @@
+/* AdSenseプレビュー対策: ロゴ画像の拡大防止 */
+.logo-house img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 /* .listページのサイドバーだけ白背景 */
 .list .sidebar .widget.profile-widget,
 .list .sidebar .widget.categories-widget,
