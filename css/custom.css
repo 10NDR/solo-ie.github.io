@@ -1,3 +1,8 @@
+/* Cusdis コメント欄の高さを強制 */
+#cusdis_thread iframe {
+  min-height: 350px;
+}
+
 /* AdSenseプレビュー対策: 記事内・カバー画像の拡大防止 */
 .post-content img,
 .entry-cover img,
