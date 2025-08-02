@@ -1,3 +1,14 @@
+/* AdSenseプレビュー対策: 記事内・カバー画像の拡大防止 */
+.post-content img,
+.entry-cover img,
+.article-cover img,
+.single-cover img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 /* AdSenseプレビュー対策: ロゴ画像の拡大防止 */
 .logo-house img {
   max-width: 100%;
