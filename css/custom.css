@@ -436,9 +436,9 @@
 }
 
 .main-content {
-  flex: 0 0 720px; /* 固定幅720px */
+  flex: 0 0 840px; /* 固定幅840px */
   min-width: 0;
-  max-width: 720px; /* メインコンテンツの標準幅 */
+  max-width: 840px; /* メインコンテンツの標準幅 */
 }
 
 /* PaperModのデフォルトmax-widthを上書き */
@@ -498,6 +498,14 @@
 
 /* スマートフォン対応 */
 @media (max-width: 768px) {
+  .post-content img,
+  .entry-cover img {
+    margin-left: 8px;
+    margin-right: 8px;
+    width: calc(100% - 16px);
+    max-width: 100%;
+    height: auto;
+  }
   .main-content-wrapper {
     flex-direction: column;
     padding: 0 1rem;
