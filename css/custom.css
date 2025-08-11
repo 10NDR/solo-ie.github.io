@@ -29,6 +29,7 @@
 }
 /* .listページのサイドバーだけ白背景 */
 .list .sidebar .widget.profile-widget,
+.list .sidebar .widget.posts-list-widget,
 .list .sidebar .widget.categories-widget,
 .list .sidebar .widget.recent-posts-widget {
   background: #fff;
@@ -38,6 +39,7 @@
 /* ダークモード時のサイドバーウィジェット背景色調整 */
 @media (prefers-color-scheme: dark) {
   .list .sidebar .widget.profile-widget,
+  .list .sidebar .widget.posts-list-widget,
   .list .sidebar .widget.categories-widget,
   .list .sidebar .widget.recent-posts-widget {
     background: var(--code-bg, #23272f);
