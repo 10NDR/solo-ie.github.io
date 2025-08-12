@@ -142,6 +142,7 @@
 @media (max-width: 480px) {
   .site-logo.logo-house {
     gap: 12px;
+    margin-left: 0.5rem;
   }
 
   .logo-house .house-icon {
