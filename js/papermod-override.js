@@ -71,4 +71,29 @@ document.addEventListener('DOMContentLoaded', function () {
       // ここはサイト固有のため、必要なら詳細を追加してください
     });
   }
+
+  // =========================
+  // 横スクロールテーブルヒント（常時表示・アニメ付き）
+  // =========================
+  (function injectAlwaysVisibleTableHints() {
+    const TABLE_WRAPPER_SELECTOR = '.table-scroll';
+    const candidates = document.querySelectorAll(TABLE_WRAPPER_SELECTOR);
+    if (!candidates.length) return;
+
+    candidates.forEach((wrapper) => {
+      if (wrapper.classList.contains('table-scroll-hint-inserted')) return;
+      const table = wrapper.querySelector('table');
+      if (!table) return;
+
+      // 横スクロールが必要な場合のみヒント表示
+      if (table.scrollWidth > wrapper.clientWidth + 8) {
+        const hint = document.createElement('div');
+        hint.className = 'table-scroll-hint always-visible';
+        hint.innerHTML =
+          '<span>横にスクロールできます</span><span class="icon-arrows"><span>›</span><span>›</span><span>›</span></span>';
+        wrapper.parentNode.insertBefore(hint, wrapper);
+      }
+      wrapper.classList.add('table-scroll-hint-inserted');
+    });
+  })();
 });

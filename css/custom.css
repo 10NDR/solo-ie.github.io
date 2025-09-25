@@ -1,3 +1,71 @@
+/* =========================
+   横スクロールテーブルヒント（常時表示）
+   ========================= */
+.table-scroll-hint.always-visible {
+  position: static;
+  width: 100%;
+  margin: 0.5em 0 0.5em 0;
+  padding: 0.6em 1em;
+  background: linear-gradient(90deg, #f7f7fa 80%, #e3eafc 100%);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #444;
+  letter-spacing: 0.05em;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  z-index: 1;
+  animation: tableHintPulse 2.4s ease-in-out infinite;
+}
+
+@media (prefers-color-scheme: dark) {
+  .table-scroll-hint.always-visible {
+    background: linear-gradient(90deg, #23272f 80%, #2a3a5f 100%);
+    color: #ddd;
+  }
+}
+
+@keyframes tableHintPulse {
+  0%,
+  100% {
+    opacity: 0.95;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.table-scroll-hint .icon-arrows {
+  display: inline-flex;
+  gap: 0.25rem;
+  margin-left: 0.5rem;
+  opacity: 0.85;
+}
+.table-scroll-hint .icon-arrows span {
+  display: inline-block;
+  animation: arrowMove 1.2s ease-in-out infinite;
+}
+.table-scroll-hint .icon-arrows span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.table-scroll-hint .icon-arrows span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes arrowMove {
+  0% {
+    transform: translateX(0);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateX(6px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 0.2;
+  }
+}
 /* 目次リストの余白・行間調整（スマホ） */
 #TableOfContents ul {
   margin-bottom: 1rem;
@@ -898,4 +966,125 @@
 
 .blogmura-blogparts {
   text-align: center;
+}
+
+/* テーブルセルの余白・行間を強制上書き */
+.post-content table {
+  font-size: 0.9rem;
+}
+.post-content table th,
+.post-content table:not(.highlighttable):not(.highlight table):not(.gist .highlight) td {
+  padding: 10px 12px !important;
+  vertical-align: middle !important;
+  background: #f7f7fa !important;
+}
+
+.post-content table:not(.highlighttable):not(.highlight table):not(.gist .highlight) tr {
+  border-bottom: 1px solid #e5e7eb !important;
+}
+
+/* =========================
+     横スクロールテーブルヒント
+     ========================= */
+.table-scroll-wrapper {
+  position: relative;
+}
+
+.table-scroll-hint {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* クリック透過 */
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.65));
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #444;
+  letter-spacing: 0.05em;
+  text-align: center;
+  z-index: 5;
+  animation: tableHintPulse 2.4s ease-in-out infinite;
+  padding: 0 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .table-scroll-hint {
+    background: linear-gradient(90deg, rgba(30, 30, 30, 0.92), rgba(30, 30, 30, 0.65));
+    color: #ddd;
+  }
+}
+
+@keyframes tableHintPulse {
+  0%,
+  100% {
+    opacity: 0.95;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.table-scroll-hint .icon-arrows {
+  display: inline-flex;
+  gap: 0.25rem;
+  margin-left: 0.5rem;
+  opacity: 0.85;
+}
+
+.table-scroll-hint .icon-arrows span {
+  display: inline-block;
+  animation: arrowMove 1.2s ease-in-out infinite;
+}
+
+.table-scroll-hint .icon-arrows span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.table-scroll-hint .icon-arrows span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes arrowMove {
+  0% {
+    transform: translateX(0);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateX(6px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 0.2;
+  }
+}
+
+/* ヒント非表示状態 */
+.table-scroll-wrapper.scrolled .table-scroll-hint,
+.table-scroll-wrapper.hint-hidden .table-scroll-hint {
+  display: none !important;
+}
+
+/* PCなど十分幅がある場合は自動的に非表示 */
+@media (min-width: 1024px) {
+  .table-scroll-hint {
+    display: none;
+  }
+}
+
+/* ダークモード対応 */
+@media (prefers-color-scheme: dark) {
+  .post-content table th,
+  .post-content table:not(.highlighttable):not(.highlight table):not(.gist .highlight) td {
+    background: #23272f !important;
+    color: #e5e7eb !important;
+  }
+  .post-content table:not(.highlighttable):not(.highlight table):not(.gist .highlight) tr {
+    border-bottom: 1px solid #444 !important;
+  }
 }
