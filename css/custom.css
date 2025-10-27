@@ -513,10 +513,37 @@
   justify-content: center; /* 中央寄せ */
 }
 
+/* 左サイドバーバナーが存在する場合のレイアウト調整 */
+.main-content-wrapper:has(.left-sidebar-banner) {
+  max-width: 1400px !important; /* 左バナー用に幅を拡張 */
+}
+
 .main-content {
   flex: 0 0 840px; /* 固定幅840px */
   min-width: 0;
   max-width: 840px; /* メインコンテンツの標準幅 */
+}
+
+/* 左サイドバーバナーのスタイル */
+.left-sidebar-banner {
+  flex-shrink: 0;
+  position: sticky;
+  top: 80px;
+  align-self: flex-start;
+}
+
+.left-banner-pc {
+  display: block;
+}
+
+.left-banner-pc img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.left-banner-mobile {
+  display: none;
 }
 
 /* PaperModのデフォルトmax-widthを上書き */
@@ -596,6 +623,29 @@
   .sidebar {
     width: 100%;
     margin-top: 2rem;
+  }
+
+  /* 左サイドバーバナーをスマホでは非表示 */
+  .left-sidebar-banner {
+    display: none;
+  }
+
+  .left-banner-pc {
+    display: none;
+  }
+
+  /* スマホでは右サイドバーにモバイル用バナーを表示 */
+  .left-banner-mobile {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .left-banner-mobile img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
   }
 
   /* スマートフォンでの見出しサイズ調整 */
