@@ -73,6 +73,18 @@
 #TableOfContents li {
   line-height: 1.7;
 }
+
+/* 手動目次（toc-manual）のリンク下線を削除 - PaperMod標準目次に合わせる */
+.toc-manual a {
+  text-decoration: none;
+  border-bottom: none;
+  box-shadow: none;
+  background-image: none;
+}
+
+.toc-manual a:hover {
+  box-shadow: 0 1px 0;
+}
 /* Cusdis コメント欄の高さを強制 */
 #cusdis_thread iframe {
   min-height: 350px;
@@ -1136,5 +1148,129 @@
   }
   .post-content table:not(.highlighttable):not(.highlight table):not(.gist .highlight) tr {
     border-bottom: 1px solid #444 !important;
+  }
+}
+
+/* =========================
+   ページ分割ナビゲーション
+   ========================= */
+.post-footer .multipage-nav,
+nav.multipage-nav {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--code-bg, #f7f7fa);
+  border-radius: var(--radius, 8px);
+}
+
+.multipage-nav .multipage-label {
+  font-size: 0.9rem;
+  color: var(--secondary, #666);
+  margin-right: 0.5rem;
+}
+
+.multipage-nav ul.multipage-list,
+ul.multipage-list {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 0.25rem;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.multipage-nav ul.multipage-list li,
+ul.multipage-list li {
+  display: inline-block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.multipage-list li a,
+.multipage-list li span {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.multipage-list li a {
+  color: var(--primary, #333);
+  background: transparent;
+  border: 1px solid var(--border, #ddd);
+}
+
+.multipage-list li a:hover {
+  background: var(--primary, #333);
+  color: var(--theme, #fff);
+  border-color: var(--primary, #333);
+}
+
+.multipage-list li.active span {
+  background: var(--primary, #333);
+  color: var(--theme, #fff);
+  border: 1px solid var(--primary, #333);
+}
+
+.multipage-list li.disabled span {
+  color: var(--secondary, #999);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.multipage-prev a,
+.multipage-next a {
+  font-weight: 600;
+}
+
+/* ダークモード対応 */
+@media (prefers-color-scheme: dark) {
+  .multipage-nav {
+    background: var(--code-bg, #23272f);
+  }
+
+  .multipage-list li a {
+    border-color: #444;
+  }
+
+  .multipage-list li a:hover {
+    background: var(--primary, #60a5fa);
+    border-color: var(--primary, #60a5fa);
+  }
+
+  .multipage-list li.active span {
+    background: var(--primary, #60a5fa);
+    border-color: var(--primary, #60a5fa);
+  }
+}
+
+/* スマートフォン対応 */
+@media (max-width: 480px) {
+  .multipage-nav {
+    padding: 0.75rem;
+  }
+
+  .multipage-label {
+    font-size: 0.85rem;
+  }
+
+  .multipage-list li a,
+  .multipage-list li span {
+    min-width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
   }
 }
