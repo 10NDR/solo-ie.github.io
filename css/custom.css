@@ -700,6 +700,20 @@
     height: 20px;
     font-size: 0.6em;
   }
+
+  /* スマートフォンでの本文テキスト調整 */
+  .post-content {
+    font-size: 1rem;      /* 16px（標準値） */
+    line-height: 1.75;    /* PC版1.9から少し詰める */
+  }
+
+  .post-content p {
+    margin-bottom: 1.2rem; /* 段落間も少し詰める */
+  }
+
+  .post-content li {
+    line-height: 1.7;      /* リスト項目も調整 */
+  }
 }
 
 /* ウィジェット共通スタイル */
