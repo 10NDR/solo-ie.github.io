@@ -192,6 +192,18 @@
   color: var(--primary);
 }
 
+/* モバイル専用楽天ウィジェットの表示制御 */
+.mobile-rakuten-widget {
+  display: none !important;
+  margin: 16px 0;
+}
+
+@media (max-width: 768px) {
+  .mobile-rakuten-widget {
+    display: block !important;
+  }
+}
+
 /* ダークモード対応 */
 .dark .logo-house .house-icon svg path:first-child {
   fill: #60a5fa;
@@ -703,8 +715,8 @@
 
   /* スマートフォンでの本文テキスト調整 */
   .post-content {
-    font-size: 1rem;      /* 16px（標準値） */
-    line-height: 1.75;    /* PC版1.9から少し詰める */
+    font-size: 1rem; /* 16px（標準値） */
+    line-height: 1.75; /* PC版1.9から少し詰める */
   }
 
   .post-content p {
@@ -712,7 +724,7 @@
   }
 
   .post-content li {
-    line-height: 1.7;      /* リスト項目も調整 */
+    line-height: 1.7; /* リスト項目も調整 */
   }
 }
 
@@ -1164,4 +1176,3 @@
     border-bottom: 1px solid #444 !important;
   }
 }
-
