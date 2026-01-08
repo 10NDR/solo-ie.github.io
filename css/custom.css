@@ -192,18 +192,6 @@
   color: var(--primary);
 }
 
-/* モバイル専用楽天ウィジェットの表示制御 */
-.mobile-rakuten-widget {
-  display: none !important;
-  margin: 16px 0;
-}
-
-@media (max-width: 768px) {
-  .mobile-rakuten-widget {
-    display: block !important;
-  }
-}
-
 /* ダークモード対応 */
 .dark .logo-house .house-icon svg path:first-child {
   fill: #60a5fa;
