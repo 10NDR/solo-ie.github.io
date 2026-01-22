@@ -2,26 +2,39 @@
    横スクロールテーブルヒント（常時表示）
    ========================= */
 .table-scroll-hint.always-visible {
-  position: static;
-  width: 100%;
-  margin: 0.5em 0 0.5em 0;
-  padding: 0.6em 1em;
-  background: linear-gradient(90deg, #f7f7fa 80%, #e3eafc 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  overflow: visible;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 0.6em;
   font-size: 0.95rem;
   font-weight: 600;
   color: #444;
   letter-spacing: 0.05em;
   text-align: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.table-scroll-hint.always-visible > span:first-child {
+  background: linear-gradient(90deg, #f7f7fa 80%, #e3eafc 100%);
+  padding: 0.5em 1em;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  z-index: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   animation: tableHintPulse 2.4s ease-in-out infinite;
 }
 
 @media (prefers-color-scheme: dark) {
   .table-scroll-hint.always-visible {
-    background: linear-gradient(90deg, #23272f 80%, #2a3a5f 100%);
     color: #ddd;
+  }
+  .table-scroll-hint.always-visible > span:first-child {
+    background: linear-gradient(90deg, #23272f 80%, #2a3a5f 100%);
   }
 }
 
@@ -975,7 +988,7 @@
   }
 }
 
-/* OGPカード風リンクのデザイン強化 */
+/* OGPカード風リンクのデザイン */
 .card-link {
   display: block;
   max-width: 480px;
@@ -984,60 +997,121 @@
   background: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   margin: 24px 0;
-  transition: box-shadow 0.2s;
+  transition:
+    box-shadow 0.2s,
+    border-color 0.2s,
+    transform 0.1s;
   overflow: hidden;
 }
 
 .card-link a {
   text-decoration: none;
   color: inherit;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 20px;
+  gap: 16px;
+}
+
+/* 矢印アイコン（タップ可能であることを示す） */
+.card-link a::after {
+  content: '›';
+  font-size: 1.8em;
+  font-weight: 300;
+  color: #999;
+  flex-shrink: 0;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.card-link:hover a::after {
+  transform: translateX(4px);
+  color: #3b82f6;
+}
+
+/* タップ時のフィードバック（モバイル用） */
+.card-link:active {
+  transform: scale(0.98);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
 .card-link-content {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  flex: 1;
+  min-width: 0;
 }
 
 .card-link-content strong {
   font-size: 1.15em;
   color: #222;
+  display: block;
 }
 
 .card-link-content p {
   margin: 0;
   color: #666;
-  font-size: 0.98em;
+  font-size: 0.95em;
 }
 
 .card-link:hover {
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
   border-color: #b3d4fc;
 }
-/* OGPカード風リンク用CSS */
-.card-link {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 16px 0;
-  background: #fafafa;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  transition: box-shadow 0.2s;
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+  .card-link {
+    max-width: 100%;
+    margin: 16px 0;
+  }
+  .card-link a {
+    padding: 16px;
+  }
 }
-.card-link:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+
+/* ダークモード対応（OS設定 + PaperModの.darkクラス両対応） */
+@media (prefers-color-scheme: dark) {
+  .card-link {
+    background: #2d2d2d;
+    border-color: #444;
+  }
+  .card-link-content strong {
+    color: #f5f5f5;
+  }
+  .card-link-content p {
+    color: #b0b0b0;
+  }
+  .card-link:hover {
+    border-color: #60a5fa;
+  }
+  .card-link a::after {
+    color: #666;
+  }
+  .card-link:hover a::after {
+    color: #60a5fa;
+  }
 }
-.card-link-content strong {
-  font-size: 1.1em;
-  display: block;
-  margin-bottom: 8px;
+
+.dark .card-link {
+  background: #2d2d2d;
+  border-color: #444;
 }
-.card-link-content p {
-  margin: 0;
-  color: #555;
-  font-size: 0.95em;
+.dark .card-link-content strong {
+  color: #f5f5f5;
+}
+.dark .card-link-content p {
+  color: #b0b0b0;
+}
+.dark .card-link:hover {
+  border-color: #60a5fa;
+}
+.dark .card-link a::after {
+  color: #666;
+}
+.dark .card-link:hover a::after {
+  color: #60a5fa;
 }
 
 .blogmura-blogparts {

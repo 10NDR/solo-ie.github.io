@@ -87,11 +87,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // 横スクロールが必要な場合のみヒント表示
       if (table.scrollWidth > wrapper.clientWidth + 8) {
+        // 親要素にposition: relativeを設定（オーバーレイ用）
+        wrapper.style.position = 'relative';
         const hint = document.createElement('div');
         hint.className = 'table-scroll-hint always-visible';
         hint.innerHTML =
-          '<span>横にスクロールできます</span><span class="icon-arrows"><span>›</span><span>›</span><span>›</span></span>';
-        wrapper.parentNode.insertBefore(hint, wrapper);
+          '<span>横にスクロールできます<span class="icon-arrows"><span>›</span><span>›</span><span>›</span></span></span>';
+        // wrapperの内部にオーバーレイとして追加（CLSを防ぐ）
+        wrapper.appendChild(hint);
       }
       wrapper.classList.add('table-scroll-hint-inserted');
     });
