@@ -2,26 +2,24 @@
    横スクロールテーブルヒント（常時表示）
    ========================= */
 .table-scroll-hint.always-visible {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 0;
-  overflow: visible;
+  position: static;
+  width: 100%;
+  margin: 0.5em 0 0.5em 0;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  padding-top: 0.6em;
   font-size: 0.95rem;
   font-weight: 600;
   color: #444;
   letter-spacing: 0.05em;
   text-align: center;
-  z-index: 10;
+  z-index: 1;
   pointer-events: none;
+  background: transparent !important;
 }
 
 .table-scroll-hint.always-visible > span:first-child {
+  display: inline-block;
   background: linear-gradient(90deg, #f7f7fa 80%, #e3eafc 100%);
   padding: 0.5em 1em;
   border-radius: 8px;
@@ -565,6 +563,11 @@
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+/* PC時：左サイドバーバナー内の直接のaタグを非表示（スマホ用バナー） */
+.left-sidebar-banner > a {
+  display: none;
 }
 
 .left-banner-mobile {
