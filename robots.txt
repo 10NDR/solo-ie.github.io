@@ -1,6 +1,7 @@
 User-agent: *
 Disallow: /_private_memo/
 Disallow: /drafts/
+Disallow: /tags/
 Allow: /
 
 # XMLサイトマップの場所
