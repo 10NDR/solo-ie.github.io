@@ -24,7 +24,14 @@
     />
     <meta property="og:url" content="https://solo-ie.com/tools/lifeplan/detail/" />
     <meta property="og:site_name" content="独身アラフォーの家づくり" />
-    <meta name="twitter:card" content="summary" />
+    <!-- OGP画像は2ページ共通。編集元は assets/ogp/ogp.svg で、
+         magick で 1200x630 のPNGへ変換して public/ogp.png に置いている。
+         SVGのまま配信しない（X・Facebook・Slack は og:image のSVGを表示しない）。 -->
+    <meta property="og:image" content="https://solo-ie.com/tools/lifeplan/ogp.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <!-- 1200x630 を用意したので large 側にする。summary のままだと小さな正方形で切り取られる -->
+    <meta name="twitter:card" content="summary_large_image" />
     <!-- 絶対URLで直接書く理由は index.html 側のコメントを参照。 -->
     <link rel="canonical" href="https://solo-ie.com/tools/lifeplan/detail/" />
     <script>
@@ -46,8 +53,8 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="../assets/detail-CVWL7Aks.js"></script>
-    <link rel="modulepreload" crossorigin href="../assets/analytics-B-N7VYy2.js">
+    <script type="module" crossorigin src="../assets/detail-Dszo3PWc.js"></script>
+    <link rel="modulepreload" crossorigin href="../assets/analytics-DeNi_GJ4.js">
     <link rel="stylesheet" crossorigin href="../assets/analytics-CkJGdcwt.css">
   </head>
   <!-- 背景色・文字色は src/index.css の base レイヤーで指定する（bg-slate-950 と二重管理しない） -->
